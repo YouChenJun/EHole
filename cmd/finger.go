@@ -20,7 +20,6 @@ import (
 	"ehole/module/finger/source"
 	"os"
 
-	"github.com/gookit/color"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +29,6 @@ var fingerCmd = &cobra.Command{
 	Short: "ehole的指纹识别模块",
 	Long:  `从fofa或者本地文件获取资产进行指纹识别，支持单条url识别。`,
 	Run: func(cmd *cobra.Command, args []string) {
-		color.RGBStyleFromString("105,187,92").Println("\n     ______    __         ______                 \n" +
-			"    / ____/___/ /___ ____/_  __/__  ____ _____ ___ \n" +
-			"   / __/ / __  / __ `/ _ \\/ / / _ \\/ __ `/ __ `__ \\\n" +
-			"  / /___/ /_/ / /_/ /  __/ / /  __/ /_/ / / / / / /\n" +
-			" /_____/\\__,_/\\__, /\\___/_/  \\___/\\__,_/_/ /_/ /_/ \n" +
-			"			 /____/ https://forum.ywhack.com  By:shihuang\n")
 		if localfile != "" {
 			urls := removeRepeatedElement(source.LocalFile(localfile))
 			s := finger.NewScan(urls, thread, output, proxy, fingerFile)
